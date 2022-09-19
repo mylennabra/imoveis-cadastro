@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Imóvel</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
+
+    <link href="sweetalert2/dist/sweetalert2.min.css">
+
+    <!-- <script src="/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <link href="sweetalert2/dist/sweetalert2.css"> -->
+    <!--!!!!!!!!!!!!!!!! npm install --save sweetalert2 -->
+
+
 </head>
-<body class="bg-light">
+<body id="body" class="bg-light">
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Seu Imóvel</a>
@@ -24,14 +33,14 @@
                     <a class="nav-link" href="#">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastrar imóveis</a>
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Cadastrar imóveis</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Listar imóveis
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">A - Z</a></li>
+                        <li><a class="dropdown-item" href="modal.html">A - Z</a></li>
                         <li><a class="dropdown-item" href="#">Z - A</a></li>
                     </ul>
                 </li>
@@ -53,7 +62,9 @@
             <div class="carousel-caption d-md-block">
                 <h1 class="txt-shadow">Seu imóvel nunca foi tão fácil!</h1>
                 <h3 class="txt-shadow">Basta escolher o que melhor se adeque aos seus planos!</h3>
-                <button class="btn btn-light mt-4">ÁREA DO CLIENTE</button>
+                <a href="modal.html">
+                    <button src="modal.html" class="btn btn-light mt-4">ÁREA DO CLIENTE</button>
+                </a>
             </div>
             <div class="carousel-item active opacity-50" data-bs-interval="100000000">
                 <img src="/img/house-1.jpg" class="d-block w-100 h-100" alt="...">
@@ -138,46 +149,157 @@
     <div class="px-4 my-4">
         <div class="container px-3 border rounded">
             <h2 class="text-center my-4">FAÇA SUA BUSCA</h2>
-            <form action="">
+            <form action="" id="">
                 <h5>AÇÃO:</h5>
                 <div class="btn-group w-100 mb-3" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="acao-imovel" id="btnradio1" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="acao-imovelxxx" id="btnradio1" autocomplete="off" checked>
                     <label class="btn btn-outline-secondary p-1" for="btnradio1">Alugar</label>
                     
-                    <input type="radio" class="btn-check" name="acao-imovel" id="btnradio2" autocomplete="off">
+                    <input type="radio" class="btn-check" name="acao-imovelxxx" id="btnradio2" autocomplete="off">
                     <label class="btn btn-outline-secondary p-1" for="btnradio2">Comprar</label>
                     
-                    <input type="radio" class="btn-check" name="acao-imovel" id="btnradio3" autocomplete="off">
+                    <input type="radio" class="btn-check" name="acao-imovelxxx" id="btnradio3" autocomplete="off">
                     <label class="btn btn-outline-secondary p-1" for="btnradio3">Ambos</label>
                 </div>
                 
                 <h5>TIPO:</h5>
-                <select class="form-select mb-3" aria-label="Default select example">
+                <select required class="form-select mb-3" aria-label="Default select example" name="">
                     <option value="1"></option>
-                    <option value="2">One</option>
+                    <option value="2">Oneaaaaaaaaaaaaaaaaaaa</option>
                     <option value="3">Two</option>
                     <option value="4">Three</option>
                 </select>
 
                 <h5>ESTADO:</h5>
-                <select class="form-select mb-3" aria-label="Default select example">
+                <select required class="form-select mb-3" aria-label="Default select example" name="">
                     <option value="1"></option>
                     <option value="2">One</option>
-                    <option value="3">Two</option>
+                    <option value="3">Twoaaaaaaaaaaaaaaa</option>
                     <option value="4">Three</option>
                 </select>
 
                 <h5>CIDADE:</h5>
-                <select class="form-select mb-3" aria-label="Default select example">
+                <select required class="form-select mb-3" aria-label="Default select example" name="">
                     <option value="1"></option>
                     <option value="2">One</option>
                     <option value="3">Two</option>
-                    <option value="4">Three</option>
+                    <option value="4">Threeaaaaaaaaaaaa</option>
                 </select>
-                <button class="btn btn-secondary w-100 my-3">BUSCAR</button>
+                <button class="btn btn-secondary w-100 my-3" type="button" data-bs-toggle="modal" data-bs-target="#modal1">BUSCAR</button>
+
+                <div id="liveAlertPlaceholder"></div>
             </form>
         </div>
     </div>
+    <hr/>
+
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal1Label">Seus imóveis</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="w-100 px-3 m-auto">
+                        <table class="table table-striped text-break">
+                            <thead>
+                                <tr>
+                                <th class="">Tipo</th>
+                                <th class="">Cidade</th>
+                                <th class="">Es</th>
+                                <th class="">Para</th>
+                                <th class="">Preço</th>
+                                <th class="">Excluir</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista">
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal2Label">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="w-100 px-3 m-auto">
+                        <form action="" id="house">
+                            <h5>Este imóvel está para:</h5>
+                            <div class="btn-group w-100 mb-3" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="acao-imovel" id="btnradio4" autocomplete="off">
+                                <label class="btn btn-outline-secondary p-1" for="btnradio4">Alugar</label>
+                                
+                                <input type="radio" class="btn-check" name="acao-imovel" id="btnradio5" autocomplete="off">
+                                <label class="btn btn-outline-secondary p-1" for="btnradio5">Comprar</label>
+                                
+                                <input type="radio" class="btn-check" name="acao-imovel" id="btnradio6" autocomplete="off">
+                                <label class="btn btn-outline-secondary p-1" for="btnradio6">Aberto a propostas</label>
+                            </div>
+                            
+                            <h5>Qual o tipo do seu imóvel?</h5>
+                            <select required class="form-select mb-3" aria-label="Default select example" name="tipo">
+                                <option value="1"></option>
+                                <option value="2">Casa</option>
+                                <option value="3">Casa de Condomínio</option>
+                                <option value="4">Apartamento</option>
+                                <option value="5">Kitnet</option>
+                                <option value="6">Flat</option>
+                                <option value="7">Casa de praia</option>
+                                <option value="8">Loft</option>
+                                <option value="9">Comercial</option>
+                            </select>
+            
+                            <h5>Qual estado se localiza?</h5>
+                            <select required class="form-select mb-3" aria-label="Default select example" name="state">
+                                <option value="1"></option>
+                                <option value="2">One</option>
+                                <option value="3">Twoaaaaaaaaaaaaaaa</option>
+                                <option value="4">Three</option>
+                            </select>
+            
+                            <h5>Qual cidade se localiza?</h5>
+                            <select required class="form-select mb-3" aria-label="Default select example" name="city">
+                                <option value="1"></option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Threeaaaaaaaaaaaa</option>
+                            </select>
+
+                            <h5>Qual valor de venda/aluguel desejável?</h5>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" class="form-control bg-light" name="price" aria-label="Amount (to the nearest real)">
+                                <span class="input-group-text">,00</span>
+                            </div>
+
+                            <!-- <button class="btn btn-secondary w-100 my-3" type="button" data-bs-toggle="modal" data-bs-target="#modal1">Ver lista de imóveis</button> -->
+                            
+                            <div id="liveAlertPlaceholder"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger w-25 mr-1" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-success" style="width:70%" id="menssagem22" onclick="addHouse();return false;">Pronto!</button>
+                </div>
+                </div>
+        </div>
+    </div>
+
     <div class="container-fluid mt-5 py-5 px-2 bg-secondary txt-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-4">
@@ -222,7 +344,15 @@
             </div>
         </div>
     </div>
-</div>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    
+    </div>
+    <!-- <a href="modal.html">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+    </a> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 </html>
