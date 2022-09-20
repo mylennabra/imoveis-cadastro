@@ -1,6 +1,6 @@
 # Seu Imóvel
 
-Webapp de uma página de imóveis com funções de cadastrar
+Webapp de uma página de imóveis
 
 <br>
 
