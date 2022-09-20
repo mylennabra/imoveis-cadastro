@@ -1,25 +1,27 @@
 # Seu Imóvel
 
-Webapp de uma página de imóveis
+Webapp de uma página de imóveis 
 
-<br>
+
 
 | Preview - <a href="" >Visualizar online</a>                                                                                     | 
 | -------------------------------------------------------------------------------------------- | 
 | <img  src="https://user-images.githubusercontent.com/74362841/191134311-016f8e74-dd18-43bb-b71b-aadaf4bac061.png" /> | 
 
-
-<hr>
+<br>
 
 ![](https://img.shields.io/github/repo-size/mylennabra/imoveis-cadastro?labelColor=345861&color=FF8c21&label=repo-size&style=flat-square)
 ![](https://img.shields.io/github/languages/count/mylennabra/imoveis-cadastro?labelColor=345861&color=FF8c21&style=flat-square)
 ![](https://img.shields.io/github/languages/top/mylennabra/imoveis-cadastro?labelColor=345861&color=FF8c21&style=flat-square)
 ![](https://img.shields.io/github/last-commit/mylennabra/imoveis-cadastro?labelColor=345861&color=FF8c21&style=flat-square)
 
+<br>
 
 ## Sobre
 * Projeto para fins de prática no framework Bootstrap. Consiste em uma landing page de imóveis em que é possível cadastrar e buscar imóveis de todo o Brasil.
 * Design e prototipagem pelo Figma ( <a target="_blank" href="https://www.figma.com/file/YB91af5yTQksxNj9ZG5U6u/Projeto-Seu-Im%C3%B3vel---My%2Fenna-Rodrigues%3E?node-id=0%3A1">Acesse o design</a> )
+
+<br>
 
 ## Ferramentas utilizadas
 
@@ -33,6 +35,10 @@ Webapp de uma página de imóveis
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="30" width="42" alt="vscode logo"  />
 </div>
 
+<br>
+<hr>
 
+
+Mylenna Rodrigues - 2022
 
 
