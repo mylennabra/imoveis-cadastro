@@ -35,6 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Cadastrar imóveis</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="modal.html" data-bs-toggle="modal" data-bs-target="#modal1">Listar imóveis</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Listar imóveis
@@ -163,29 +166,56 @@
                 </div>
                 
                 <h5>TIPO:</h5>
-                <select required class="form-select mb-3" aria-label="Default select example" name="">
+                <h5>Qual o tipo do seu imóvel?</h5>
+                <select required class="form-select mb-3" aria-label="Default select example" name="busca_tipo">
                     <option value="1"></option>
-                    <option value="2">Oneaaaaaaaaaaaaaaaaaaa</option>
-                    <option value="3">Two</option>
-                    <option value="4">Three</option>
+                    <option value="2">Casa</option>
+                    <option value="3">Casa de Condomínio</option>
+                    <option value="4">Apartamento</option>
+                    <option value="5">Kitnet</option>
+                    <option value="6">Flat</option>
+                    <option value="7">Casa de praia</option>
+                    <option value="8">Loft</option>
+                    <option value="9">Comercial</option>
                 </select>
 
                 <h5>ESTADO:</h5>
-                <select required class="form-select mb-3" aria-label="Default select example" name="">
-                    <option value="1"></option>
-                    <option value="2">One</option>
-                    <option value="3">Twoaaaaaaaaaaaaaaa</option>
-                    <option value="4">Three</option>
+                <select required onchange="buscaCidades()" class="form-select mb-3" aria-label="Default select example" name="">
+                    <option value="estado">Selecione o Estado</option> 
+                    <option value="AC">Acre</option> 
+                    <option value="AL">Alagoas</option> 
+                    <option value="AM">Amazonas</option> 
+                    <option value="AP">Amapá</option> 
+                    <option value="BA">Bahia</option> 
+                    <option value="CE">Ceará</option> 
+                    <option value="DF">Distrito Federal</option> 
+                    <option value="ES">Espírito Santo</option> 
+                    <option value="GO">Goiás</option> 
+                    <option value="MA">Maranhão</option> 
+                    <option value="MT">Mato Grosso</option> 
+                    <option value="MS">Mato Grosso do Sul</option> 
+                    <option value="MG">Minas Gerais</option> 
+                    <option value="PA">Pará</option> 
+                    <option value="PB">Paraíba</option> 
+                    <option value="PR">Paraná</option> 
+                    <option value="PE">Pernambuco</option> 
+                    <option value="PI">Piauí</option> 
+                    <option value="RJ">Rio de Janeiro</option> 
+                    <option value="RN">Rio Grande do Norte</option> 
+                    <option value="RO">Rondônia</option> 
+                    <option value="RS">Rio Grande do Sul</option> 
+                    <option value="RR">Roraima</option> 
+                    <option value="SC">Santa Catarina</option> 
+                    <option value="SE">Sergipe</option> 
+                    <option value="SP">São Paulo</option> 
+                    <option value="TO">Tocantins</option> 
                 </select>
 
                 <h5>CIDADE:</h5>
                 <select required class="form-select mb-3" aria-label="Default select example" name="">
-                    <option value="1"></option>
-                    <option value="2">One</option>
-                    <option value="3">Two</option>
-                    <option value="4">Threeaaaaaaaaaaaa</option>
+
                 </select>
-                <button class="btn btn-secondary w-100 my-3" type="button" data-bs-toggle="modal" data-bs-target="#modal1">BUSCAR</button>
+                <button class="btn btn-secondary w-100 my-3" type="button" data-bs-toggle="modal" data-bs-target="#modal3">BUSCAR</button>
 
                 <div id="liveAlertPlaceholder"></div>
             </form>
@@ -202,7 +232,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="w-100 px-1 m-auto">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="tabela">
                             <thead>
                                 <tr>
                                 <th class=" text-break">Tipo</th>
@@ -213,7 +243,7 @@
                                 <th class="">X</th>
                                 </tr>
                             </thead>
-                            <tbody id="lista">
+                            <tbody id="lista_cadastro">
                 
                             </tbody>
                         </table>
@@ -225,9 +255,8 @@
                 </div>
         </div>
     </div>
-
-
-
+    
+    
     <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-light">
@@ -294,20 +323,20 @@
                                 <option value="SP">São Paulo</option> 
                                 <option value="TO">Tocantins</option> 
                             </select>
-            
+                            
                             <h5>Qual cidade se localiza?</h5>
                             <select required id="cidade" class="form-select mb-3" aria-label="Default select example" name="city">
                                 <option value="1"></option>
                                 
                             </select>
-
+                            
                             <h5>Qual valor de venda/aluguel desejável?</h5>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">R$</span>
                                 <input type="text" class="form-control bg-light" name="price" aria-label="Amount (to the nearest real)">
                                 <span class="input-group-text">,00</span>
                             </div>
-
+                            
                             <!-- <button class="btn btn-secondary w-100 my-3" type="button" data-bs-toggle="modal" data-bs-target="#modal1">Ver lista de imóveis</button> -->
                             
                             <div id="liveAlertPlaceholder"></div>
@@ -318,9 +347,46 @@
                     <button type="button" class="btn btn-outline-danger w-25 mr-1" data-bs-dismiss="modal">Cancelar</button>
                     <button class="btn btn-success" style="width:70%" id="menssagem22" onclick="addHouse();return false;">Pronto!</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal3Label">Resultado da Busca</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="w-100 px-1 m-auto">
+                        <table id="tabela_busca" class="table table-striped">
+                            <thead id="tabela_busca_header">
+                                <tr id="tabela_busca_1">
+                                    <th class=" text-break">Tipo</th>
+                                    <th class=" text-break">Cidade</th>
+                                    <th class="">UF</th>
+                                    <th class=" text-break">Para</th>
+                                    <th class=" text-break">Preço</th>
+                                    <th class="">X</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista_busca">
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
                 </div>
         </div>
     </div>
+
+
 
     <div class="container-fluid mt-5 py-5 px-2 bg-secondary txt-light">
         <div class="container">
