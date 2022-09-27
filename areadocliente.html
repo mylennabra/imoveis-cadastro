@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Imóvel</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <link href="sweetalert2/dist/sweetalert2.min.css">
+
+
+</head>
+<body id="body" class="bg-light">
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Seu Imóvel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Cadastrar imóveis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="modal.html" data-bs-toggle="modal" data-bs-target="#modal1">Listar imóveis</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Listar imóveis
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="modal.html">A - Z</a></li>
+                        <li><a class="dropdown-item" href="#">Z - A</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Imperatriz" aria-label="Buscar">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+    </nav>
+</body>
